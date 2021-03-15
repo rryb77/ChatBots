@@ -28,7 +28,7 @@ namespace ChatBots
                 new DuckDuckGoBot(),
                 new ShoutBot(),
                 new MemoryBot(),
-                new AddBot(),
+                new MathBot(),
             };
         }
 
