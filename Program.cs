@@ -11,10 +11,27 @@ namespace ChatBots
 
             // Create a list of bots
             List<IChatBot> bots = CreateBots();
-            // Set the user chosen bot to chosenBot
-            IChatBot chosenBot = ChooseBot(bots);
-            // Pass the bot into HaveConversation so it can interact with the user
-            HaveConversation(chosenBot);
+            bool wantsToChat = true;
+
+            while (wantsToChat)
+            {
+                // Set the user chosen bot to chosenBot
+                IChatBot chosenBot = ChooseBot(bots);
+                // Pass the bot into HaveConversation so it can interact with the user
+                HaveConversation(chosenBot);
+
+                Console.WriteLine("Would you like to chat with a different bot?");
+                Console.Write("[Y/N] > ");
+
+                string chatAgain = Console.ReadLine().ToLower();
+
+                if (chatAgain != "y")
+                {
+                    Console.WriteLine("The chat is over. Good-bye.");
+                    wantsToChat = false;
+                }
+            }
+
         }
 
         // The method that creates a list of bots using the IChatBot interface
@@ -86,9 +103,6 @@ namespace ChatBots
                 string response = bot.SendMessage(input);
                 BotWriteLine(bot, response);
             }
-
-            // Say goodbye!
-            Console.WriteLine("The chat is over. Good-bye.");
         }
 
         // Let the bot say something to the user
