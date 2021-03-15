@@ -27,9 +27,11 @@ namespace ChatBots
             {
                 try
                 {
+                    int parsed = Int32.Parse(s);
+
                     if (mathType == "add")
                     {
-                        int parsed = Int32.Parse(s);
+
                         answer = answer + parsed;
                     }
                     else if (mathType == "subtract")
@@ -40,7 +42,6 @@ namespace ChatBots
                         }
                         else if (counter > 1)
                         {
-                            int parsed = Int32.Parse(s);
                             answer = answer - parsed;
                         }
                     }
@@ -52,7 +53,6 @@ namespace ChatBots
                         }
                         else if (counter > 1)
                         {
-                            int parsed = Int32.Parse(s);
                             answer = answer * parsed;
                         }
 
@@ -65,7 +65,6 @@ namespace ChatBots
                         }
                         else if (counter > 1)
                         {
-                            int parsed = Int32.Parse(s);
                             answer = answer / parsed;
                         }
                     }
